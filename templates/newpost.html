@@ -1,0 +1,46 @@
+{%extends "usernavbar.html"%}
+
+<title>{%block title%}
+    Sign Up!
+    {%endblock%}</title>
+<div></div>
+
+<body>
+    {%block content%}
+
+    <form method= "POST" enctype="multipart/form-data" action="{{url_for('auth.newpost')}}">
+        {{ form.hidden_tag() }}
+         
+        <div class = form>
+            {{form.Entry.label}}
+            <br>
+            {{form.Entry}}
+            {% if form.Entry.message %}
+                <div class="invalid-feedback">  
+                    {% for error in form.Entry.message %}
+                        <span>{{ message }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+        </div>
+        <div class = form >
+            {{form.File.label}}
+            <br>
+            {{form.File}}
+            {% if form.File.message %}
+                <div class="invalid-feedback">  
+                    {% for error in form.File.message %}
+                        <span>{{ message }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+        </div>
+        <div class="submit-button">
+            {{ form.Submit(class_="submit-button") }}
+        </div>
+    </form>
+<br>
+
+
+    {%endblock%}
+</body>

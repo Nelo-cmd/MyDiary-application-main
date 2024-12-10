@@ -1,0 +1,28 @@
+{%extends "usernavbar.html"%}
+
+    {% block head %}
+    <script>
+        function submitForm() {
+            document.getElementById("logoutform").submit();
+        }
+    </script> 
+    {% endblock %}
+
+    {% block content %}
+    <form id="logoutform" method="POST" action="{{url_for('auth.logout')}}">
+        {{ form.hidden_tag() }}
+
+        <div class="form">
+            <label for="logout">{{ form.logout.label.text }}</label>
+            <br>
+            {{ form.logout(onchange="submitForm()") }}
+            {% if form.logout.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.logout.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </form>
+    {% endblock %}

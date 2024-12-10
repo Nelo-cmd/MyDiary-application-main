@@ -1,0 +1,35 @@
+{%extends "usernavbar.html"%}
+{%block head%}
+
+{%endblock%}
+
+{%block content%}
+    {% if posts: %}
+        {% for post in posts: %}
+            <!-- Use the correct syntax for indexing and variable assignment -->
+            {% set post_id = post[0] %}
+            <div class="display-post">
+                <!-- Display the post content -->
+                <p>{{ post[1] }}</p>
+                <div >
+                    {% if post[2] %}  <!-- Check if there's A file -->
+                        {%if  post[2] in ['mov', 'mp4'] %}
+                            <video class="file-frame" controls src="data:video/{{post[2]}};base64,{{ base64.b64encode(post[3]).decode('utf-8') }}"></video>
+                        {% elif  post[2] in ['jpeg', 'jpg', 'png', 'gif'] %}
+                            <img class="file-frame" src="data:image/post[2];base64,{{ base64.b64encode(post[3]).decode('utf-8') }}" alt="Post Image" class="post-image"/>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="sub-post">
+                    <!-- Display the username and timestamp -->
+                    Confessed by {{ post[5] }} on <em>{{ post[4].strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                </div>
+                <br>
+                <a type="button" class="delete-post-button" href="{{url_for('auth.confirm_delete', post_id=post[0] )}}">Delete Post</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No posts available.</p>
+    {% endif %}
+    <a href="{{ url_for('auth.newpost') }}" class="fixed-post-button"> New Post</a>
+{%endblock%}

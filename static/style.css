@@ -1,0 +1,340 @@
+body {
+    background-color: black;
+    text-align: center;
+    transition: all;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: rgb(238, 37, 70);
+    align-content: center;
+    border-radius: 5%;
+    padding: 0; /* Adds horizontal padding */
+    margin-bottom: 3%; /* Removes default margin */
+    height: auto; /* Sets the height of the navbar */
+    width:100%
+
+}
+
+.logo-container{
+    display: block;
+    margin: 10px 0;
+    margin-right: 20%;
+}
+
+nav div img{
+    display: block;
+    border-radius: 50%;
+    height : 20%;
+    width :10vh;
+    margin-right: 50%; 
+    margin-left: 0%;   
+}
+
+.navlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0 0px;
+    margin: 0;
+    font-size: x-large;
+    width: 100%;
+}
+
+.nav-item{
+    display: block;
+    margin: 1% 0;
+    margin-right: 10%;
+}
+
+.nav-link {
+    color: rgb(247, 244, 244); /* Sets the text color to white */
+    text-decoration: none; /* Removes the underline from links */
+    font-size: larger; /* Increases the font size */
+    font-weight: bold; /* Makes the text bold */
+    padding: 0;
+}
+
+.nav-link:hover{
+    font-size: large; /* Increases the font size */
+    color: #0a0a0a;
+}
+
+.homepage-logo{
+    margin: 5% 10%;
+    width:50%;
+    height: 20%;
+}
+
+h3 {
+    color:rgb(238, 37, 70);
+    animation: fadeInOut 4s infinite; /* Animation name, duration, and repeat */
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0; /* Invisible at the start and end */
+    }
+    50% {
+        opacity: 1; /* Fully visible in the middle */
+    }
+}
+
+.link-button{
+    display: inline-block; /* Allows the link to have padding and margins */
+    padding: 1% 3%; /* Space inside the button */
+    background-color: rgb(238, 37, 70);
+    color: white; /* White text color */
+    text-decoration: none; /* Removes the underline */
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 20%; /* Rounded corners */
+    border: 2px solid #eafad1; /* Border around the button */
+    box-shadow: 0 4px 6px rgb(120 2 2 / 10%); /* Soft shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    z-index: 0;
+}
+
+.link-button:hover {
+    background-color: rgb(204, 16, 3); /* Darker pink on hover */
+    transform: translateY(-2px); /* Slightly lift the button on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.link-button:active {
+    transform: translateY(1px); /* Pressed down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+
+/* Center the form on the page */
+form {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center;
+    justify-content:center;
+    height: 50%;
+    width: 50%;
+    padding: 10% 0%;
+    margin-left: 25%;
+}
+
+/* Style form container */
+.form {
+    background-color: #e51919; /* Pink background */
+    padding: 2% 2%;
+    border-radius: 10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10%;
+    width: 80%;
+    height: 10%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+    color: #0f0f0f; /* White text */
+}
+
+/* Style for labels and inputs */
+.form label {
+    display: block;
+    font-weight: bold;
+    font-size:80%;
+    margin:0;
+}
+
+.form input, .form textarea {
+    width: 90%;
+    height:auto;
+    padding: 3%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border: none;
+    border-radius:10%;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Hover effect for the form */
+.form:hover {
+    transform: scale(1.05); /* Slightly enlarge the form */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+
+/* Style for the submit button */
+.submit-button {
+    background-color: rgb(238, 37, 70) !important;
+    color: rgb(240, 248, 248) !important;
+    padding: 10px 20px !important;
+    border: rgb(250, 183, 199) !important;
+    border-radius: 35px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Hover effect for the submit button */
+.submit-button:hover {
+    background-color: rgb(224, 2, 2); /* Even darker teal on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Active effect for the submit button */
+.submit-button:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+
+h4{
+    color:rgb(238, 37, 70) !important;
+}
+
+.flash-message {
+    position: relative;
+    padding: 2%;
+    margin-bottom: 2%;
+    border: 1% solid #ccc;
+    border-radius: 2%;
+    background-color: #f9f9f9;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.flash-message.success {
+    border-color: #c8e6c9;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.flash-message.error {
+    border-color: #ef9a9a;
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.flash-message .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+}
+
+.flash-message .close-btn:hover {
+    color: #000;
+}
+
+
+/* Thought bubble style for posts */
+.display-post {
+    background-color: #f5f5dc; /* Light cream color for the thought bubble */
+    color: #333; /* Darker text color for readability */
+    padding: 20px; /* Increase padding for a more spacious look */
+    margin: 20px 0; /* Add vertical margin to space out the bubbles */
+    border-radius: 25px; /* More rounded corners for a bubble effect */
+    border: 2px solid #f14850; /* Light teal border to complement the bubble */
+    position: relative; /* For positioning the tail of the bubble */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for a floating effect */
+    max-width: 600px; /* Limit the width for a compact look */
+    margin-left: auto; /* Center the bubble horizontally */
+    margin-right: auto; /* Center the bubble horizontally */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Cute font for a playful look */
+}
+
+
+.display-post::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; /* Position the tail at the bottom */
+    left: 20px; /* Adjust horizontal position of the tail */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #f5f5dc; /* Match the tail color with the bubble */
+    border-bottom: 0;
+    margin-left: -10px;
+}
+
+.file-frame {
+    display: inline-block; /* Ensures that the entire frame is treated as a single element */
+    /*padding: px; /* Space between the image and the frame */
+    background-color: #f7f5f3; /* white color for the frame */
+    border: 3% solid #f82032; /* Dark teal blue border for the frame */
+    box-shadow: 0 4% 8% rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+    border-radius: 8px; /* Rounds the corners of the frame */
+    height: 45%;
+    width: 30%;
+}
+
+.file-frame img {
+    display: block;
+    max-width: 100%; /* Ensures the image fits within the frame */
+    height: fit-content;
+    border-radius: 2%; /* Slightly rounds the image corners inside the frame */
+}
+
+
+/* Style for the sub-post section */
+.sub-post {
+    color: rgb(238, 37, 70); /* Teal color for the subtext */
+    font-style: italic; /* Italicized for a softer look */
+    font-size:autofill /* Slightly smaller font for subtext */
+    margin-top: 5%; /* Add space between the post content and subtext */
+}
+
+
+/* Delete button styling */
+.delete-post-button {
+    background-color: rgb(238, 37, 70); /* Teal blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover and active states for the delete button */
+.delete-post-button:hover {
+    background-color: #cf0505; /* Red when hovered */
+}
+
+.delete-post-button:active {
+    background-color: #4d0004; /* Darker blue when clicked */
+    transform: scale(0.95); /* Slightly shrink when clicked */
+}
+
+
+.fixed-post-button {
+    position: fixed;
+    bottom: 30px; /* Distance from the bottom of the screen */
+    right: 40px;  /* Distance from the right of the screen */
+    background-color: rgb(238, 37, 70); /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Padding around the button text */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 25px; /* Font size */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for a 3D effect */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border: 2px solid #e76363; /*pink pastel ring around the button */
+
+}
+
+.fixed-post-button:hover {
+    background-color: darkred; /* Change color on hover */
+    font-size: 30px;
+}
+
+.fixed-post-button:active {
+    background-color: rgb(241, 137, 137); /* Change color when clicked */
+}

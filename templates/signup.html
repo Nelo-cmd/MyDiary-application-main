@@ -1,0 +1,78 @@
+{%extends "base.html"%}
+
+<title>{%block title%}
+    Sign Up!
+    {%endblock%}</title>
+<div></div>
+
+<body>
+    {%block content%}
+
+
+    <h3>I see you'd like to share some secrets *wink wink*</h3>          
+
+    <h4>You'll have to sign up first though.. </h4> 
+    <form autocomplete method= "POST" action="{{url_for('auth.sign_up')}}">
+        {{ form.hidden_tag() }}
+        <div class = form>
+            {{form.username.label}}
+            {{form.username}}
+            {% if form.username.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div> 
+            {%endif%}
+        </div>
+        <div class = form>
+            {{form.Email.label}}
+            {{form.Email}}
+            {% if form.Email.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.Email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+        </div>      
+         
+        <div class = form>
+            {{form.password.label}}
+            {{form.password}}
+            {% if form.password.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+        </div>
+
+
+        <div class = form>
+            {{form.confirm_password.label}}
+            {{form.confirm_password}}
+            {% if form.confirm_password.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+        </div>
+
+        <div class="submit-button">
+            {{ form.Submit(class_="submit-button") }}
+        </div>
+    </form>
+<br>
+
+<div>
+    <h4>Already have an account? 
+        <a class="link-button" href="{{url_for('auth.login_with_username')}}">Log in!</a>
+    </h4>
+</div>
+
+    {%endblock%}
+</body>

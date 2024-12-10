@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+
+<title>{%block title%}
+    {%endblock%}</title>
+<div></div>
+<body>
+{%block content%}
+<h3>I see you'd like to share some secrets *wink wink*</h3>          
+
+    <h4>You'll have to log in first though.. </h4> 
+    <form autocomplete method= "POST" action="{{url_for('auth.login_with_username')}}">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <div class = form>
+            {{form.username.label}}
+            <br>
+            {{form.username}}
+            {% if form.username.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div> 
+            {%endif%}
+        </div>
+         
+        <div class = form>
+            {{form.password.label}}
+            <br>
+            {{form.password}}
+            {% if form.password.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+            
+        </div>
+        <div class ="submit-button">
+            {{ form.Submit(class_="submit-button") }}
+        </div>
+    </form>
+    <a class="link-button" href="{{url_for('auth.login_with_email')}}">Log in with email</a>
+    {%endblock%}
+</body>

@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+
+<title>{%block title%}
+    {%endblock%}</title>
+<div></div>
+<body>
+{%block content%}
+<h3>I see you'd like to share some secrets *wink wink*</h3>          
+
+    <h4>You'll have to log in first though.. </h4> 
+    <form autocomplete method= "POST" action="{{url_for('auth.login_with_email')}}">
+        {{ form.hidden_tag() }}
+        <div class = form>
+            {{form.Email.label}}
+            <br>
+            {{form.Email}}
+            {% if form.Email.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.Email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+        </div>      
+         
+        <div class = form>
+            {{form.password.label}}
+            <br>
+            {{form.password}}
+            {% if form.password.errors %}
+                <div class="invalid-feedback">  
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {%endif%}
+           
+        </div>
+        <div class ="submit-button">
+            {{ form.Submit(class_="submit-button") }}
+        </div>
+    </form>
+    {%endblock%}
+</body>

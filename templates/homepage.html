@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+
+<title>{%block title%}
+        {%endblock%}</title>
+<div></div>
+<body>
+        {%block content%}
+
+        <div class = "logo-video">
+                <video class="homepage-logo" src="{{url_for('static',filename ='Logo video.mp4')}}" autoplay muted></video>
+        </div>
+        <div>
+                <a class="link-button" href="{{url_for('auth.sign_up')}}">Sign up!</a>
+        </div>
+        {%endblock%}
+        
+        <h3>
+                This is basically a personal Diary
+        </h3> 
+</body>

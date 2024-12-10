@@ -1,0 +1,48 @@
+{% extends "usernavbar.html" %}
+
+{% block head %}
+<script>
+    function submitForm() {
+        document.getElementById("deletepostform").submit();
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+{% if post %}
+    <div class="display-post">
+        <!-- Display the post content -->
+        <p>{{ post[1] }}</p>
+        <div >
+            {% if post[2] %}  <!-- Check if there's A file -->
+                {%if  post[2] in ['MOV', 'MP4'] %}
+                    <video controls src="data:video/{{post[2]}};base64,{{ base64.b64encode(post[3]).decode('utf-8') }}"></video>
+                {% elif  post[2] in ['jpeg', 'jpg', 'png', 'gif'] %}
+                    <img class="file-frame" src="data:image/post[2];base64,{{ base64.b64encode(post[3]).decode('utf-8') }}" alt="Post Image" class="post-image"/>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="sub-post">
+            <!-- Display the username and timestamp -->
+            Confessed by {{ post[5] }} on <em>{{ post[4].strftime('%Y-%m-%d %H:%M:%S') }}</em>
+        </div>
+    <p>This post will be deleted. Confirm?</p>
+    <form id="deletepostform" method="POST" action="{{ url_for('auth.confirm_delete') }}">
+        {{ form.hidden_tag() }}
+        <input type="hidden" name="post_id" value="{{ post_id }}">
+        
+        <div class="form">
+            <label for="deletepost">{{ form.deletepost.label.text }}</label>
+            <br>
+            {{ form.deletepost(onchange="submitForm()") }}
+            {% if form.deletepost.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.deletepost.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </form>
+{% endif %}
+{% endblock %}
